@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script defer src="script.js"></script></head>
+  <script src="https://kit.fontawesome.com/5028945411.js" crossorigin="anonymous"></script>
+
+<body>
+    <h1>Water Calculator</h1>
+
+    <div class="mainBox">
+    <!-- <form class="mainBox" action="/submit"> -->
+    
+        <div class="gender">
+            <p>Gender</p>
+            <div class="icons">
+                <button id="male-btn">Male<i class="fa-thin fa-person"></i></button>
+                <button id="female-btn">Female<i class="fa-thin fa-person-dress"></i></button>
+            </div>
+        </div>
+
+        <div class="age" id="age-id">
+            <div class="age-lbl">
+                <label for="age" class="a-lbl">Age</label>
+            </div>
+            <div class="age-input">
+                <div class="age-input-group">
+                    <input class="a-inpt" id="a-input" type="number" min="18" max="100" name="age">
+                    <span class="age-years" id="age-in-years">years</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="height" id="height-id">
+            <div class="height-lbl">
+                <label for="height" class="h-lbl">Height</label>
+            </div>
+            <div class="height-input-group">
+                <div class="height-group">
+                    <input class="h-inpt" id="h-input"type="number" min="130" max="220" name="height">
+                    <span class="height-cm" id="height-in-cm">cm</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="weight" id="weight-id">
+            <div class="weight-lbl">
+                <label for="weight" class="w-lbl">Weight</label>
+            </div>
+            <div class="weight-input-group">
+                <div class="weight-group">
+                    <input class="w-inpt" id="w-input" type="number" min="40" max="150" name="weight">
+                    <span class="weight-kg" id="weight-in-kg">kg</span>
+                    <!-- <p id="weight-error"></p> -->    
+                </div>
+            </div>
+        </div>
+
+        <p>Weather</p>
+        <div class="weather">
+            <div class="weather-item">
+                <input type="radio" id="weather-cold" name="weather" value="cold">
+                <label for="cold">Cold</label>
+            </div>
+            
+            <div class="weather-item">
+                <input type="radio" id="weather-normal" name="weather" value="normal">
+                <label for="normal">Normal</label>
+            </div>
+            
+            <div class="weather-item">
+                <input type="radio" id="weather-tropical" name="weather" value="warm">
+                <label for="warm">Warm</label>
+            </div>
+        </div>
+
+        <p>Activity level</p>
+        <div class="activity-level">
+            <div class="activity-item">
+                <input type="radio" id="activity-sedentary" name="activity" value="sedentary">
+                <label for="sedentary">Sedentary (little or no exercise)</label>
+            </div>
+            
+            <div class="activity-item">
+                <input type="radio" id="activity-moderade" name="activity" value="moderade">
+                <label for="moderade">Moderade (2-4 times a week)</label>
+            </div>
+            
+            <div class="activity-item">
+                <input type="radio" id="activity-intense" name="activity" value="intense">
+                <label for="intense">Intense (5-7 times a week)</label>
+            </div>
+        </div>
+    
+
+        <button type="submit" id="submit">Submit</button>
+    </div>
+    <!-- </form> -->
+</body>
+</html>

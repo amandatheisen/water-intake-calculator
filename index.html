@@ -14,10 +14,10 @@
     <div class="mainBox">
     <!-- <form class="mainBox" action="/submit"> -->
     
-        <div class="gender">
+        <div class="gender" id="male-female-id">
             <p>Gender</p>
             <div class="icons">
-                <button id="male-btn">Male<i class="fa-thin fa-person"></i></button>
+                <button id="male-btn" value="male">Male<i class="fa-thin fa-person"></i></button>
                 <button id="female-btn">Female<i class="fa-thin fa-person-dress"></i></button>
             </div>
         </div>
@@ -40,7 +40,7 @@
             </div>
             <div class="height-input-group">
                 <div class="height-group">
-                    <input class="h-inpt" id="h-input"type="number" min="130" max="220" name="height">
+                    <input class="h-inpt" id="h-input"type="number" min="130" max="210" name="height">
                     <span class="height-cm" id="height-in-cm">cm</span>
                 </div>
             </div>
@@ -48,7 +48,7 @@
 
         <div class="weight" id="weight-id">
             <div class="weight-lbl">
-                <label for="weight" class="w-lbl">Weight</label>
+                <label for="weight" class="w-lbl-kg">Weight</label>
             </div>
             <div class="weight-input-group">
                 <div class="weight-group">
@@ -59,7 +59,35 @@
             </div>
         </div>
 
-        <p>Weather</p>
+        <div class="weather" id="weather-id">
+            <div class="weather-lbl">
+                 <label for="weather" class="w-lbl">Weather</label>
+            </div>
+            <div class="weather-select-group">
+                <select class="w-select-box">
+                    <option id="weather-select-option">-- Select the weather here --</option>
+                    <option class="weather-option" id="weather-cold" value="cold">Cold</option>
+                    <option class="weather-option" id="weather-normal"value="normal">Normal</option>
+                    <option class="weather-option" id="weather-warm"value="warm">Warm</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="activity-level" id="activity-level-id">
+            <div class="activity-level-lbl">
+                <label for="activity-level" class="a-l-lbl">Activity level</label>
+            </div>
+            <div class="activity-level-select-group">
+                <select class="a-l-select-box">
+                    <option value="activity-level-select">--Select your Activity Level here --</option>
+                    <option value="sedentary">Sedentary (little or no exercice)</option>
+                    <option value="moderate">Moderate (2-4 times a week)</option>
+                    <option value="intense">Intense (5-7 times a week)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- <p>Weather</p>
         <div class="weather">
             <div class="weather-item">
                 <input type="radio" id="weather-cold" name="weather" value="cold">
@@ -75,9 +103,10 @@
                 <input type="radio" id="weather-tropical" name="weather" value="warm">
                 <label for="warm">Warm</label>
             </div>
-        </div>
+        </div> -->
 
-        <p>Activity level</p>
+
+        <!-- <p>Activity level</p>
         <div class="activity-level">
             <div class="activity-item">
                 <input type="radio" id="activity-sedentary" name="activity" value="sedentary">
@@ -93,11 +122,13 @@
                 <input type="radio" id="activity-intense" name="activity" value="intense">
                 <label for="intense">Intense (5-7 times a week)</label>
             </div>
-        </div>
-    
+        </div> -->
 
-        <button type="submit" id="submit">Submit</button>
-    </div>
+        <form id="my-submit-form">
+            <button type="submit" id="submit-form">Submit</button>
+        </form>
+    
+</div>
     <!-- </form> -->
 </body>
 </html>

@@ -37,11 +37,12 @@ gap: 20px;
     width: 60px;
     height: 25px;
     margin: 10px 20px;
+    cursor: pointer;
 }
 
-#male-btn, #female-btn{
+/* #male-btn, #female-btn{
     margin: 0 20px;
-}
+} */
 
 /* input {
     width: 70px;
@@ -72,13 +73,13 @@ gap: 20px;
     width: 100%;
 }
 
-.age, .height, .weight {
+.age, .height, .weight, .weather, .activity-level {
     display: flex;
     gap: 20px;
     justify-content: space-between;
     align-items: center;
     /* width: 40%; */
-    width: 100%
+    width: 100%;
 }
 
 /* .input-group, .input-years {
@@ -86,7 +87,7 @@ gap: 20px;
     align-items: center;
 } */
 
-.age-input-group, .height-input-group, .weight-input-group {
+.age-input-group, .height-input-group, .weight-input-group{
     display: flex;
     align-items: center;
     gap: 5px; /* Espaçamento entre input e span */
@@ -96,6 +97,15 @@ gap: 20px;
     background-color: #fff;
     width: 100px;
 }
+
+select {
+    align-items: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 5px;
+}
+
 
 /* .a-inpt {
     margin-right: 0px;
@@ -142,49 +152,46 @@ gap: 20px;
     background-color: #0056b3;
 } */
 
-#weight-error {
+/* #weight-error {
     display: none;
-}
+} */
 
-.weather {
+.weather, .activity-level {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    /* justify-content: center; */
     align-items: start;
     width: 100%;
 }
 
-.weather-item {
+/* .weather-select-group, .a-l-select-box {
+    align-self: flex-end;
+    
+} */
+
+
+/* .weather-item {
     display: flex;
     justify-content: space-between;
     width: 20%;
-}
+} */
 
-.activity-level {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    width: 100%;
-}
-
-.activity-item {
+/* .activity-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
+} */
 
-}
-
-.activity-item > input {
+/* .activity-item > input {
     width: 13px;
-}
+} */
 
-.lbl {
+/* .lbl {
     width: 28px;
-}
+} */
 
-#submit {
-    width: 30%;
+#submit-form {
+    width: 35%;
     justify-self: center;
     align-self: center;
     margin-top: 20px;

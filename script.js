@@ -24,7 +24,7 @@ const heightInput = document.getElementById("h-input")
 const weightInput = document.getElementById("w-input")
 const weatherSelect = document.getElementById("weather-id")
 const activityLevelSelect = document.getElementById("activity-level-id")
-const mySubmit = document.getElementById("my-submit-form")
+const mySubmit = document.getElementById("submit-form")
 
 let userGenderFactor = 0;
 
@@ -178,7 +178,7 @@ activityLevelSelect.addEventListener("change", (e) => {
 
 let userSubmitResult = 0;
 
-mySubmit.addEventListener("submit", (e) => {
+mySubmit.addEventListener("click", (e) => {
     e.preventDefault();
 
         userSubmitResult = 

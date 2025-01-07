@@ -4,13 +4,13 @@
 }
 
 body {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-min-height: 100vh;
-background-color: #f5f5f5;
-gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    gap: 20px;
 }
 
 .mainBox {
@@ -40,32 +40,6 @@ gap: 20px;
     cursor: pointer;
 }
 
-/* #male-btn, #female-btn{
-    margin: 0 20px;
-} */
-
-/* input {
-    width: 70px;
-    padding: 5px;
-    text-align: center;
-    margin: 20px;
-
-} */
-
-/* input {
-    padding: 5px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-} */
-
-/* .gender {
-    display: flex;
-    flex-direction: block;
-    width: 100%;
-} */
-
 .gender {
     display: flex;
     flex-direction: row;
@@ -78,19 +52,13 @@ gap: 20px;
     gap: 20px;
     justify-content: space-between;
     align-items: center;
-    /* width: 40%; */
     width: 100%;
 }
-
-/* .input-group, .input-years {
-    display: flex;
-    align-items: center;
-} */
 
 .age-input-group, .height-input-group, .weight-input-group{
     display: flex;
     align-items: center;
-    gap: 5px; /* Espaçamento entre input e span */
+    gap: 5px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 5px;
@@ -106,10 +74,6 @@ select {
     padding: 5px;
 }
 
-
-/* .a-inpt {
-    margin-right: 0px;
-} */
 .a-inpt, .h-inpt, .w-inpt {
     width: 70px;
     border: none;
@@ -117,78 +81,24 @@ select {
     text-align: center;
     font-size: 14px;
 }
-/* .input-years {
-    margin: 20px 10px;
-    border: 2px solid black;
-} */
+
 .input-years, .height.cm, .w-inpt {
     font-size: 16px;
     color: black;
-    white-space: nowrap; /* Garante que o texto "years" não quebre */
+    white-space: nowrap; 
 }
 
 .age-lbl label, .height-lbl label, .weight-lbl label {
     font-size: 16px;
-    /* font-weight: bold; */
     color: #333;
 }
-
-
-
-/* #submit {
-    width: 30%;
-    justify-self: center;
-    align-self: center;
-    margin-top: 20px;
-    padding: 4px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#submit:hover {
-    background-color: #0056b3;
-} */
-
-/* #weight-error {
-    display: none;
-} */
 
 .weather, .activity-level {
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
     align-items: start;
     width: 100%;
 }
-
-/* .weather-select-group, .a-l-select-box {
-    align-self: flex-end;
-    
-} */
-
-
-/* .weather-item {
-    display: flex;
-    justify-content: space-between;
-    width: 20%;
-} */
-
-/* .activity-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
-
-/* .activity-item > input {
-    width: 13px;
-} */
-
-/* .lbl {
-    width: 28px;
-} */
 
 #submit-form {
     width: 35%;

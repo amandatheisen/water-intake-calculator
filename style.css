@@ -55,8 +55,37 @@ body {
     width: 100%;
 }
 
+/* .age-input, .height-input-group, .weight-input-group, .weather-select-group, .activity-level-select-group{
+    display: flex;
+    flex-direction: column;
+    justify-items: end;
+    align-items: end;
+    width: 100%;
+}
+
 .age-input-group, .height-input-group, .weight-input-group{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: #fff;
+    width: 100px;
+} */
+
+.age-input-group, .height-input-group, .weight-input-group, .weather-select-group, .activity-level-select-group{
+    display: flex;
+    flex-direction: column;
+    justify-items: end;
+    align-items: end;
+    width: 100%;
+}
+
+.age-input, .height-input, .weight-input{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 5px; 
     border: 1px solid #ccc;

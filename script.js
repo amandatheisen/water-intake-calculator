@@ -38,8 +38,13 @@ maleFemale.addEventListener("click", (e) => {
         userGenderFactor = 0
     }
 
-    console.log(userGenderFactor)
+    console.log({userGenderFactor})
 })
+
+// function minMaxAge(age) {
+//     if (age < 18 || age > 100)
+    
+// }
 
 
 function maleBtnClickHandler() {
@@ -86,7 +91,7 @@ let userAgeFactor = 0;
 ageInput.addEventListener("input", (e) => { 
     userAge = e.target.value
     userAgeFactor = calculateAgeFactor(userAge)
-    console.log(userAgeFactor)
+    console.log({userAgeFactor})
 })
 
 function calculateAgeFactor(age) {
@@ -100,14 +105,13 @@ function calculateAgeFactor(age) {
 }
 
 
-// let userHeight = 0;
+let userHeight = 0;
 // let heightFactor = 0;
 
 let userHeightFactor = 0;
 
 heightInput.addEventListener("input", (e) => {
     userHeight = e.target.value;
-    userHeightFactor;
 
     if (userHeight >= 180 && userHeight < 190) {
         userHeightFactor = 200
@@ -117,7 +121,7 @@ heightInput.addEventListener("input", (e) => {
         userHeightFactor = 0
     }
     
-    console.log(userHeightFactor)
+    console.log({userHeightFactor})
 })
 
 // function calculateHeightFactor(height) {
@@ -131,16 +135,39 @@ heightInput.addEventListener("input", (e) => {
 let userWeight = 0;
 let userWeightFactor = 0;
 
+
 weightInput.addEventListener("input", (e) => {
     userWeight = e.target.value;
-    userWeightFactor = calculateWeightFactor(userWeight)
-    console.log(userWeightFactor)
+    userWeightFactor = calculateWeightFactor(userWeight, userHeight)
+    console.log({userWeightFactor})
 })
 
-function calculateWeightFactor(weight) {
-    let weightResult = weight * 35;
-    return weightResult
+function calculateWeightFactor(userWeight, userHeight) {
+    // let weightResult = weight * 35;
+    // return weightResult\
+
+    // if (typeof userWeight !== "number" || userHeight !== "number" || userWeight === 0 || userHeight === 0) {
+    //     return 0
+    // }
+
+    const imc = userWeight / (userHeight ** 2)
+
+
+    if (imc < 18.5) {
+        return userWeight * 40; // Abaixo do peso
+    } else if (imc >= 18.5 && imc <= 24.9) {
+        return userWeight * 35; // Peso normal
+    } else if (imc >= 25 && imc <= 29.9) {
+        return userWeight * 30; // Sobrepeso
+    } else if (imc >= 30 && imc <= 34.9) {
+        return userWeight * 25; // Obesidade grau 1
+    } else if (imc >= 35 && imc <= 39.9) {
+        return userWeight * 20; // Obesidade grau 2
+    } else {
+        return userWeight * 15; // Obesidade grau 3
+    }
 }
+
 
 let userWeatherFactor = 0;
 
@@ -149,14 +176,14 @@ weatherSelect.addEventListener("change", (e) => {
     userWeatherFactor;
 
     if (userWeather === "cold") {
-        userWeatherFactor = 200;
+        userWeatherFactor = -200;
     } else if (userWeather === "normal") {
         userWeatherFactor = 0;
     } else { 
-        userWeatherFactor = 500;
+        userWeatherFactor = 300;
     }
 
-    console.log(userWeatherFactor) 
+    console.log({userWeatherFactor}) 
 })
 
 let userActivityLevelFactor = 0;
@@ -168,26 +195,40 @@ activityLevelSelect.addEventListener("change", (e) => {
     if (userActivityLevel === "sedentary") {
         userActivityLevelFactor = 0
     } else if (userActivityLevel === "moderate") {
-        userActivityLevelFactor = 400
+        userActivityLevelFactor = 200
     } else {
-        userActivityLevelFactor = 700
+        userActivityLevelFactor = 500
     }
 
-    console.log(userActivityLevelFactor)
+    console.log({userActivityLevelFactor})
 })
 
 let userSubmitResult = 0;
 
+
 mySubmit.addEventListener("click", (e) => {
     e.preventDefault();
 
-        userSubmitResult = 
-        userWeightFactor +
+    console.log("submit click", {
+        userWeightFactor,
+        userGenderFactor,
+        userHeightFactor,
+        userAgeFactor,
+        userWeatherFactor,
+        userActivityLevelFactor
+    });
+    
+    const factorSum = userWeightFactor +
         userGenderFactor +
         userHeightFactor +
         userAgeFactor +
         userWeatherFactor +
         userActivityLevelFactor
+
+        console.log({factorSum})
+
+        userSubmitResult = 
+        Math.min(factorSum, 3900)
 
     console.log("Water intake result:", userSubmitResult)
 })

@@ -25,11 +25,12 @@
                 <div class="age-lbl">
                     <label for="age" class="a-lbl">Age</label>
                 </div>
-                <div class="age-input">
-                    <div class="age-input-group">
+                <div class="age-input-group">
+                    <div class="age-input">
                         <input class="a-inpt" id="a-input" type="number" min="18" max="100" name="age">
                         <span class="age-years" id="age-in-years">years</span>
                     </div>
+                    <span id="age-input-error">*Please use a valid input (min:18, max:100)*</span>
                 </div>
             </div>
             
@@ -38,10 +39,11 @@
                     <label for="height" class="h-lbl">Height</label>
                 </div>
                 <div class="height-input-group">
-                    <div class="height-group">
+                    <div class="height-input">
                         <input class="h-inpt" id="h-input"type="number" min="130" max="210" name="height">
                         <span class="height-cm" id="height-in-cm">cm</span>
                     </div>
+                    <span id="height-input-error">*Please use a valid input (min:130, max:210)*</span>
                 </div>
             </div>
 
@@ -50,10 +52,11 @@
                     <label for="weight" class="w-lbl-kg">Weight</label>
                 </div>
                 <div class="weight-input-group">
-                    <div class="weight-group">
+                    <div class="weight-input">
                         <input class="w-inpt" id="w-input" type="number" min="40" max="150" name="weight">
                         <span class="weight-kg" id="weight-in-kg">kg</span> 
                     </div>
+                    <span id="weight-input-error">*Please use a valid input (min:40, max:150)*</span>
                 </div>
             </div>
 
@@ -68,6 +71,7 @@
                         <option class="weather-option" id="weather-normal"value="normal">Normal</option>
                         <option class="weather-option" id="weather-warm"value="warm">Warm</option>
                     </select>
+                    <span id="weather-select-error">*Please select an option*</span>
                 </div>
             </div>
 
@@ -82,6 +86,7 @@
                         <option value="moderate">Moderate (2-4 times a week)</option>
                         <option value="intense">Intense (5-7 times a week)</option>
                     </select>
+                    <span id="activity-level-select-error">*Please select an option*</span>
                 </div>
             </div>
 

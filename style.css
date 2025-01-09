@@ -95,6 +95,11 @@ body {
     width: 100px;
 }
 
+#age-input-error , #height-input-error, #weight-input-error, #weather-select-error, #activity-level-select-error{
+    color: rgb(215, 2, 2);
+    font-size: 13px;
+    display: none;
+}
 select {
     align-items: center;
     border: 1px solid #ccc;

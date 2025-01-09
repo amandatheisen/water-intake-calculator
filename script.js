@@ -25,6 +25,13 @@ const weightInput = document.getElementById("w-input")
 const weatherSelect = document.getElementById("weather-id")
 const activityLevelSelect = document.getElementById("activity-level-id")
 const mySubmit = document.getElementById("submit-form")
+const ageError = document.getElementById("age-input-error")
+const heightError = document.getElementById("height-input-error")
+const weightError = document.getElementById("weight-input-error")
+const weatherError = document.getElementById("weather-select-error")
+const weatherDefaltOption = document.getElementById("weather-select-option")
+const activityLevelError = document.getElementById("activity-level-select-error")
+
 
 let userGenderFactor = 0;
 
@@ -40,11 +47,6 @@ maleFemale.addEventListener("click", (e) => {
 
     console.log({userGenderFactor})
 })
-
-// function minMaxAge(age) {
-//     if (age < 18 || age > 100)
-    
-// }
 
 
 function maleBtnClickHandler() {
@@ -90,6 +92,16 @@ let userAgeFactor = 0;
 
 ageInput.addEventListener("input", (e) => { 
     userAge = e.target.value
+    const isValidAge = minMaxAge(userAge)
+
+    if(isValidAge) {
+        ageError.style.display = "none";
+    } else {
+        ageError.style.display = "flex";
+        
+        return;
+    }
+
     userAgeFactor = calculateAgeFactor(userAge)
     console.log({userAgeFactor})
 })
@@ -104,6 +116,13 @@ function calculateAgeFactor(age) {
     return -500
 }
 
+function minMaxAge(age) {
+
+    if (age < 18 || age > 100) return false;
+
+    return true;    
+}
+
 
 let userHeight = 0;
 // let heightFactor = 0;
@@ -112,6 +131,13 @@ let userHeightFactor = 0;
 
 heightInput.addEventListener("input", (e) => {
     userHeight = e.target.value;
+    const isValidHeight = minMaxHeight(userHeight);
+
+    if (isValidHeight) {
+        heightError.style.display = "none";
+    } else {
+        heightError.style.display = "flex";
+    }
 
     if (userHeight >= 180 && userHeight < 190) {
         userHeightFactor = 200
@@ -123,6 +149,14 @@ heightInput.addEventListener("input", (e) => {
     
     console.log({userHeightFactor})
 })
+
+function minMaxHeight(height) {
+    if (height < 130 || height > 210) {
+        return false
+    } else {
+        return true
+    }
+}
 
 // function calculateHeightFactor(height) {
 //     if(height >= 130 && height < 190) {
@@ -137,7 +171,16 @@ let userWeightFactor = 0;
 
 
 weightInput.addEventListener("input", (e) => {
-    userWeight = e.target.value;
+    userWeight = e.target.value
+    const isValidWeight = minMaxWeight(userWeight)
+
+    if (isValidWeight) {
+        weightError.style.display = "none";
+    } else {
+        weightError.style.display = "flex";
+
+        return
+    }
     userWeightFactor = calculateWeightFactor(userWeight, userHeight)
     console.log({userWeightFactor})
 })
@@ -168,12 +211,27 @@ function calculateWeightFactor(userWeight, userHeight) {
     }
 }
 
+function minMaxWeight(weight) {
+
+    if (weight < 40 || weight > 150) {
+        return false
+    } else {
+        return true
+    }
+}
+
 
 let userWeatherFactor = 0;
 
 weatherSelect.addEventListener("change", (e) => {
     const userWeather = e.target.value
-    userWeatherFactor;
+    // const isValidWeather = selectedWeather(userWeather);
+
+    // if (isValidWeather) {
+    //     weatherError.style.display = "none";
+    // } else {
+    //     weatherError.style.display = "flex";
+    // }
 
     if (userWeather === "cold") {
         userWeatherFactor = -200;
@@ -185,6 +243,14 @@ weatherSelect.addEventListener("change", (e) => {
 
     console.log({userWeatherFactor}) 
 })
+
+// function selectedWeather(weather) {
+//     if (weather === "weatherDefaltOption") {
+//         return false 
+//     } else {
+//         return true
+//     }
+// }
 
 let userActivityLevelFactor = 0;
 

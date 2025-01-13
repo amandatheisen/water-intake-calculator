@@ -102,7 +102,6 @@ function minMaxAge(age) {
 // * HEIGHT * //
 
 let userHeight = 0;
-// let heightFactor = 0;
 
 let userHeightFactor = 0;
 
@@ -158,25 +157,8 @@ weightInput.addEventListener("input", (e) => {
     console.log({userWeightFactor})
 })
 
-// minWaterfinalResultMessage.addEventListener("ideal-water-intake-final-message", (e) => {
-//     userMinWaterIntake = e.tar
-// })
-
-// let minWaterIntakeMath = 0;
-
-// function calculateMinWaterIntakeFactor(userWeight) {
-//     minWaterIntakeMath = userWeight * 35;
-//     console.log(minWaterIntakeMath)
-//     return minWaterIntakeMath
-// }
 
 function calculateWeightFactor(userWeight, userHeight) {
-    // let weightResult = weight * 35;
-    // return weightResult\
-
-    // if (typeof userWeight !== "number" || userHeight !== "number" || userWeight === 0 || userHeight === 0) {
-    //     return 0
-    // }
 
     const imc = userWeight / (userHeight ** 2)
 
@@ -218,16 +200,7 @@ let userWeatherFactor = 0;
 
 weatherSelect.addEventListener("change", (e) => {
     const userWeather = e.target.value
-    // const isValidWeather = validateWeather(userWeather);
-    // console.log({isValidWeather});
-    
-
-    // if (isValidWeather) {
-    //     weatherError.style.display = "none";
-    // } else {
-    //     weatherError.style.display = "flex";
-    // }
-
+   
     if (userWeather === "cold") {
         userWeatherFactor = -200;
     } else if (userWeather === "normal") {
@@ -239,13 +212,6 @@ weatherSelect.addEventListener("change", (e) => {
     console.log({userWeatherFactor}) 
 })
 
-// function validateWeather(weather) {
-//     if (weather === "no-option-selected") {
-//         return false 
-//     } else {
-//         return true
-//     }
-// }
 
 // * ACTIVITY LEVEL * //
 
@@ -286,8 +252,8 @@ mySubmit.addEventListener("click", (e) => {
         const isValid = validFields[fieldName];
 
         if(!isValid) {
-            idealWaterFinalResultMessage.textContent = 'Make sure you fill the following fields before you click "Calculate Intake": gender, age, height and weight.'
-            idealWaterFinalResultMessage.style.color = "red";
+            idealWaterFinalResultMessage.textContent = '** Make sure you fill the following fields before you click "Calculate Intake": gender, age, height and weight. **' 
+            idealWaterFinalResultMessage.style.color = "#FF4B2B";
             return;
         }
 

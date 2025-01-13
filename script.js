@@ -257,8 +257,8 @@ mySubmit.addEventListener("click", (e) => {
             return;
         }
 
-        if(idealWaterFinalResultMessage.style.color === "red"){
-            idealWaterFinalResultMessage.style.color = "black";
+        if(idealWaterFinalResultMessage.style.color === "rgb(255, 75, 43)"){
+            idealWaterFinalResultMessage.style.color = "#f2e9e1";
         }
     }
     

@@ -26,25 +26,34 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.icons {
+/* .icons {
     display: flex;
     justify-content: center;
     align-content: center;
+    
     width: 100%;
-}
+} */
 
-.icons button {
+
+/* .icons button {
     width: 60px;
     height: 25px;
     margin: 10px 20px;
     cursor: pointer;
-}
+} */
 
-.gender {
+
+.gender, .gender-input {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
+}
+
+.gender-input {
+    justify-content: center;
+    gap: 10px;
+
 }
 
 .age, .height, .weight, .weather, .activity-level {
@@ -95,10 +104,10 @@ body {
     width: 100px;
 }
 
-#age-input-error , #height-input-error, #weight-input-error, #weather-select-error, #activity-level-select-error{
-    color: rgb(215, 2, 2);
+#age-input-error , #height-input-error, #weight-input-error {
     font-size: 13px;
     display: none;
+    color: rgb(219, 7, 7);
 }
 select {
     align-items: center;
@@ -122,9 +131,16 @@ select {
     white-space: nowrap; 
 }
 
-.age-lbl label, .height-lbl label, .weight-lbl label {
+.age-lbl label, .height-lbl label, .weight-lbl label, .weather-lbl label, .activity-level-lbl label {
     font-size: 16px;
     color: #333;
+    width: 40%;
+    align-items: center;
+}
+
+#activity-level-id {
+    display: flex;
+    align-items: center;
 }
 
 .weather, .activity-level {
@@ -134,10 +150,26 @@ select {
     width: 100%;
 }
 
-#submit-form {
-    width: 35%;
+.water-input {
+    width: 30%;
+    flex-direction: row;
     justify-self: center;
     align-self: center;
     margin-top: 20px;
     padding: 4px;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+#submit-result {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }

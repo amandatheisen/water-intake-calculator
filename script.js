@@ -17,27 +17,39 @@ const PALETTE = {
 };
 
 const maleFemale = document.getElementById("male-female-id")
-const maleButton = document.getElementById("male-btn");
-const femaleButton = document.getElementById("female-btn");
 const ageInput = document.getElementById("a-input");
 const heightInput = document.getElementById("h-input")
 const weightInput = document.getElementById("w-input")
 const weatherSelect = document.getElementById("weather-id")
 const activityLevelSelect = document.getElementById("activity-level-id")
-const mySubmit = document.getElementById("submit-form")
+const mySubmit = document.getElementById("button-submit")
 const ageError = document.getElementById("age-input-error")
 const heightError = document.getElementById("height-input-error")
 const weightError = document.getElementById("weight-input-error")
 const weatherError = document.getElementById("weather-select-error")
 const weatherDefaltOption = document.getElementById("weather-select-option")
 const activityLevelError = document.getElementById("activity-level-select-error")
+const minWaterfinalResultMessage = document.getElementById("min-water-intake-final-message")
+const idealWaterFinalResultMessage = document.getElementById("ideal-water-intake-final-message")
+const resetBtn = document.getElementById("button-reset")
 
+// * GENDER * //
+
+const validFields = {
+    gender: false,
+    age: false,
+    height: false,
+    weight: false,
+}
 
 let userGenderFactor = 0;
 
 maleFemale.addEventListener("click", (e) => {
     const userGender = e.target.value
-    userGenderFactor;
+    
+    if(["male", "female"].includes(userGender)){
+        validFields.gender = true;
+    }
 
     if (userGender === "male") {
         userGenderFactor = 500
@@ -48,44 +60,7 @@ maleFemale.addEventListener("click", (e) => {
     console.log({userGenderFactor})
 })
 
-
-function maleBtnClickHandler() {
-    buttonsState.male = !buttonsState.male;
-
-    if (buttonsState.male) maleButton.style.background = PALETTE.ACTIVE_BTN;
-    else maleButton.style.background = PALETTE.DISABLED_BTN;
-
-    swicthBtnState("male")
-}
-
-function femaleBtnClickHandler() {
-    buttonsState.female = !buttonsState.female;
-
-    if (buttonsState.female) femaleButton.style.background = "white";
-    else femaleButton.style.background = "grey"
-
-    swicthBtnState("female")
-}
-
-function swicthBtnState(btnType) {
-    if (btnType === "male" && buttonsState.male === true && buttonsState.female === true) {
-        buttonsState.female = false;
-        femaleButton.style.background = "grey"
-    }
-    else if (btnType === "female" && buttonsState.female === true && buttonsState.male === true) {
-        buttonsState.male = false;
-        maleButton.style.background = "grey"
-    }
-}
-
-
-
-// maleButton.addEventListener("click", maleBtnClickHandler)
-
-// femaleButton.addEventListener("click", femaleBtnClickHandler)
-
-// ageInput.addEventListener("input", (e) => console.log(e.target.value))
-
+// * AGE * //
 
 let userAge = 0;
 let userAgeFactor = 0;
@@ -96,6 +71,7 @@ ageInput.addEventListener("input", (e) => {
 
     if(isValidAge) {
         ageError.style.display = "none";
+        validFields.age = true;
     } else {
         ageError.style.display = "flex";
         
@@ -123,6 +99,7 @@ function minMaxAge(age) {
     return true;    
 }
 
+// * HEIGHT * //
 
 let userHeight = 0;
 // let heightFactor = 0;
@@ -135,6 +112,7 @@ heightInput.addEventListener("input", (e) => {
 
     if (isValidHeight) {
         heightError.style.display = "none";
+        validFields.height = true;
     } else {
         heightError.style.display = "flex";
     }
@@ -158,13 +136,7 @@ function minMaxHeight(height) {
     }
 }
 
-// function calculateHeightFactor(height) {
-//     if(height >= 130 && height < 190) {
-//         return 200
-//     }
-//     if (height > 190 && height <= 210)
-//         return 300
-// }
+// * WEIGHT * //
 
 let userWeight = 0;
 let userWeightFactor = 0;
@@ -176,6 +148,7 @@ weightInput.addEventListener("input", (e) => {
 
     if (isValidWeight) {
         weightError.style.display = "none";
+        validFields.weight = true;
     } else {
         weightError.style.display = "flex";
 
@@ -184,6 +157,18 @@ weightInput.addEventListener("input", (e) => {
     userWeightFactor = calculateWeightFactor(userWeight, userHeight)
     console.log({userWeightFactor})
 })
+
+// minWaterfinalResultMessage.addEventListener("ideal-water-intake-final-message", (e) => {
+//     userMinWaterIntake = e.tar
+// })
+
+// let minWaterIntakeMath = 0;
+
+// function calculateMinWaterIntakeFactor(userWeight) {
+//     minWaterIntakeMath = userWeight * 35;
+//     console.log(minWaterIntakeMath)
+//     return minWaterIntakeMath
+// }
 
 function calculateWeightFactor(userWeight, userHeight) {
     // let weightResult = weight * 35;
@@ -211,6 +196,13 @@ function calculateWeightFactor(userWeight, userHeight) {
     }
 }
 
+
+function calculateMinWaterIntakeFactor(userWeight) {
+    const minWaterIntakeMath = userWeight * 35;
+    console.log(minWaterIntakeMath)
+    return minWaterIntakeMath
+}
+
 function minMaxWeight(weight) {
 
     if (weight < 40 || weight > 150) {
@@ -220,12 +212,15 @@ function minMaxWeight(weight) {
     }
 }
 
+// * WEATHER * //
 
 let userWeatherFactor = 0;
 
 weatherSelect.addEventListener("change", (e) => {
     const userWeather = e.target.value
-    // const isValidWeather = selectedWeather(userWeather);
+    // const isValidWeather = validateWeather(userWeather);
+    // console.log({isValidWeather});
+    
 
     // if (isValidWeather) {
     //     weatherError.style.display = "none";
@@ -244,13 +239,15 @@ weatherSelect.addEventListener("change", (e) => {
     console.log({userWeatherFactor}) 
 })
 
-// function selectedWeather(weather) {
-//     if (weather === "weatherDefaltOption") {
+// function validateWeather(weather) {
+//     if (weather === "no-option-selected") {
 //         return false 
 //     } else {
 //         return true
 //     }
 // }
+
+// * ACTIVITY LEVEL * //
 
 let userActivityLevelFactor = 0;
 
@@ -269,8 +266,9 @@ activityLevelSelect.addEventListener("change", (e) => {
     console.log({userActivityLevelFactor})
 })
 
-let userSubmitResult = 0;
+// * RESULT * //
 
+let userSubmitResult = 0;
 
 mySubmit.addEventListener("click", (e) => {
     e.preventDefault();
@@ -283,8 +281,23 @@ mySubmit.addEventListener("click", (e) => {
         userWeatherFactor,
         userActivityLevelFactor
     });
+
+    for(const fieldName in validFields){
+        const isValid = validFields[fieldName];
+
+        if(!isValid) {
+            idealWaterFinalResultMessage.textContent = 'Make sure you fill the following fields before you click "Calculate Intake": gender, age, height and weight.'
+            idealWaterFinalResultMessage.style.color = "red";
+            return;
+        }
+
+        if(idealWaterFinalResultMessage.style.color === "red"){
+            idealWaterFinalResultMessage.style.color = "black";
+        }
+    }
     
-    const factorSum = userWeightFactor +
+    const factorSum = 
+        userWeightFactor +
         userGenderFactor +
         userHeightFactor +
         userAgeFactor +
@@ -296,5 +309,30 @@ mySubmit.addEventListener("click", (e) => {
         userSubmitResult = 
         Math.min(factorSum, 3900)
 
-    console.log("Water intake result:", userSubmitResult)
+        console.log("Ideal Water intake result:", userSubmitResult)
+        idealWaterFinalResultMessage.textContent = 
+        `Ideal: ${userSubmitResult}ml`
+
+        const minWaterIntakeMath = calculateMinWaterIntakeFactor(userWeight)
+
+        console.log("Minimum Water intake result:", minWaterIntakeMath)
+        minWaterfinalResultMessage.textContent = 
+        `Minimum recommended: ${minWaterIntakeMath}ml`
+    
+});
+
+resetBtn.addEventListener("click", () => {
+    idealWaterFinalResultMessage.textContent = "";
+    minWaterfinalResultMessage.textContent = "";
+
+    userWeightFactor  = 0
+    userGenderFactor  = 0
+    userHeightFactor  = 0
+    userAgeFactor  = 0
+    userWeatherFactor  = 0
+    userActivityLevelFactor = 0
+
+    for(const fieldName in validFields) {
+        validFields[fieldName] = false
+    }
 })

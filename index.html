@@ -10,15 +10,37 @@
 
     <body>
 
-        <h1>Water Calculator</h1>
-
+        <h1>Water Intake Calculator</h1>
+        
+        <form>
         <div class="mainBox">
-            <div class="gender" id="male-female-id">
+
+            <!-- <div class="gender" id="male-female-id">
                 <p>Gender</p>
                 <div class="icons">
                     <button id="male-btn" value="male">Male<i class="fa-thin fa-person"></i></button>
                     <button id="female-btn">Female<i class="fa-thin fa-person-dress"></i></button>
                 </div>
+            </div> -->
+
+            <div class="gender" id="male-female-id">
+
+                <p>Gender</p>
+               
+                <div class="gender-input">
+
+                    <div class="g-input">
+                    <input type="radio" id="male-btn" name="gender" value="male">
+                    <label for="male" class="gender-label">Male</label>
+                    </div>
+
+                    <div class="g-input">
+                    <input type="radio" id="female-btn" name="gender" value="female">
+                    <label for="male" class="gender-label">Female</label>
+                    </div>
+
+                </div>
+
             </div>
 
             <div class="age" id="age-id">
@@ -66,32 +88,42 @@
                 </div>
                 <div class="weather-select-group">
                     <select class="w-select-box">
-                        <option id="weather-select-option">-- Select the weather here --</option>
-                        <option class="weather-option" id="weather-cold" value="cold">Cold</option>
-                        <option class="weather-option" id="weather-normal"value="normal">Normal</option>
-                        <option class="weather-option" id="weather-warm"value="warm">Warm</option>
+                        <!-- <option value="no-option-selected">-- Select the weather here --</option> -->
+                        <option class="weather-option" id="weather-normal"value="normal">Normal (15°C to 25°C)</option>
+                        <option class="weather-option" id="weather-cold" value="cold">Cold (below 15°C)</option>
+                        <option class="weather-option" id="weather-warm"value="warm">Warm (above 25°C)</option>
                     </select>
-                    <span id="weather-select-error">*Please select an option*</span>
+                    <!-- <span id="weather-select-error">*Please select an option*</span> -->
                 </div>
             </div>
 
             <div class="activity-level" id="activity-level-id">
                 <div class="activity-level-lbl">
-                    <label for="activity-level" class="a-l-lbl">Activity level</label>
+                    <label for="activity-level" class="a-l-lbl">Activity Level</label>
                 </div>
                 <div class="activity-level-select-group">
                     <select class="a-l-select-box">
-                        <option value="activity-level-select">--Select your Activity Level here --</option>
+                        <!-- <option value="a-l-select">--Select your Activity Level here --</option> -->
                         <option value="sedentary">Sedentary (little or no exercice)</option>
                         <option value="moderate">Moderate (2-4 times a week)</option>
                         <option value="intense">Intense (5-7 times a week)</option>
                     </select>
-                    <span id="activity-level-select-error">*Please select an option*</span>
+                    <!-- <span id="activity-level-select-error">*Please select an option*</span> -->
                 </div>
             </div>
 
-            <button id="submit-form">Submit</button>
+            
+                <div id="buttons">
+                    <input type="reset" id="button-reset" class="water-input" value="Reset">
+                    <input type="submit" id="button-submit"class="water-input" value="Calculate Intake">
+                </div>
+
+            <div id="submit-result">
+                <h4 id="ideal-water-intake-final-message"></h4>
+                <h4 id="min-water-intake-final-message"></h4>
+            </div>
         
         </div>
+    </form>
     </body>
 </html>

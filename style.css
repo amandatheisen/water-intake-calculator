@@ -3,11 +3,16 @@
     margin: 0;
 }
 
+html, body {
+    max-width: 100%;
+    overflow: hidden;
+}
+
 body {
     background-image: url(bgd.jpg);
-    background-size: 300px 280px;
+    background-size: 300px 280px; 
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -235,4 +240,22 @@ input[type="radio"], option {
 #ideal-water-intake-final-message, #min-water-intake-final-message   {
     color: #f2e9e1;
     font-size: 20px;
+}
+
+@media screen and (max-width: 490px) {
+
+    body {
+        background-image: none;
+        background-color: #96d4d4;
+    }
+    
+    .mainBox {
+        min-width: 300px;
+        width: 300px;
+    }
+
+    #h1-title {
+        font-size: 28px ;
+    }
+    
 }

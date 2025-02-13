@@ -1,1 +1,3 @@
-# water-intake-calculator-js
+# water-intake-calculator
+
+https://amandatheisen.github.io/water-intake-calculator/
